@@ -1,5 +1,7 @@
 import logo from './logo.png'
 import searchIcon from './searchIcon.svg'
+import cityhotel from './cityhotel.jpg'
+import OceanResort  from './OceanResort.png'
 import userIcon from './userIcon.svg'
 import calenderIcon from './calenderIcon.svg'
 import locationIcon from './locationIcon.svg'
@@ -28,7 +30,10 @@ import roomImg1 from './roomImg1.png'
 import roomImg2 from './roomImg2.png'
 import roomImg3 from './roomImg3.png'
 import roomImg4 from './roomImg4.png'
+import roomImg5 from './roomImg5.jpg'
+import roomImg6 from './roomImg6.jpg'
 import regImage from './regImage.png'
+import RoyalSpace from'./RoyalSpace.png'
 import exclusiveOfferCardImg1 from "./exclusiveOfferCardImg1.png";
 import exclusiveOfferCardImg2 from "./exclusiveOfferCardImg2.png";
 import exclusiveOfferCardImg3 from "./exclusiveOfferCardImg3.png";
@@ -38,11 +43,14 @@ import listIcon from "./listIcon.svg";
 import uploadArea from "./uploadArea.svg";
 import totalBookingIcon from "./totalBookingIcon.svg";
 import totalRevenueIcon from "./totalRevenueIcon.svg";
+import welcome from'./welcome.png'
 
 
 export const assets = {
     logo,
     searchIcon,
+    OceanResort,
+    cityhotel,  
     userIcon,
     calenderIcon,
     locationIcon,
@@ -60,6 +68,9 @@ export const assets = {
     roomImg2,
     roomImg3,
     roomImg4,
+    roomImg5,
+    roomImg6,
+    RoyalSpace,
     mountainIcon,
     poolIcon,
     closeIcon,
@@ -78,6 +89,7 @@ export const assets = {
     uploadArea,
     totalBookingIcon,
     totalRevenueIcon,
+    welcome
 }
 
 export const cities = [
