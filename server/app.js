@@ -6,45 +6,63 @@ import dotenv from "dotenv";
 import searchRoutes from "./routes/search.js";
 import hotelRoutes from "./routes/hotels.js";
 import bookingRoutes from "./routes/bookings.js";
+import authRoutes from "./routes/auth.js";
+import userRoutes from "./routes/user.js";
 
 dotenv.config();
 
 const app = express();
 
-// Logging middleware (TOP)
+/* =========================
+   LOGGING MIDDLEWARE
+========================= */
 app.use((req, res, next) => {
   console.log("➡️", req.method, req.url);
   next();
 });
 
-// Middleware
+/* =========================
+   GLOBAL MIDDLEWARE
+========================= */
 app.use(cors());
 app.use(express.json());
 
-// Routes
+/* =========================
+   ROUTES
+========================= */
+app.use("/api/auth", authRoutes);
 app.use("/api/hotels", hotelRoutes);
 app.use("/api/bookings", bookingRoutes);
 app.use("/api", searchRoutes);
+// app.use("/api/users", userRoutes); // enable later if needed
 
-// Health check
+/* =========================
+   HEALTH CHECK
+========================= */
 app.get("/health", (req, res) => {
   res.status(200).json({ status: "OK" });
 });
 
-// Global error handler
+/* =========================
+   GLOBAL ERROR HANDLER
+========================= */
 app.use((err, req, res, next) => {
   console.error("🔥 Error:", err.stack);
   res.status(500).json({ message: "Internal Server Error" });
 });
 
-// Env check
+/* =========================
+   ENV VALIDATION
+========================= */
 if (!process.env.MONGO_URI) {
   throw new Error("❌ MONGO_URI is not defined in .env");
 }
 
 const PORT = process.env.PORT || 5000;
 
-// Start server
+/* =========================
+   START SERVER
+========================= */
 const startServer = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
